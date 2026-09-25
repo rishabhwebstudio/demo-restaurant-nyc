@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   Phone,
   MapPin,
@@ -26,8 +27,7 @@ export default function BarbarescoPage() {
       badge: "Handmade Daily",
       description:
         "Delicate house-made pasta parcels stuffed with creamy whole-milk ricotta and organic spinach, finished in a browned sage butter emulsion and aged 24-month Parmigiano-Reggiano.",
-      image:
-        "https://images.unsplash.com/photo-1587740896339-96a76170508d?w=800&q=80",
+      image: "/images/menu/ravioli.jpg",
       alt: "Freshly made artisanal ravioli with sage butter and parmesan",
     },
     {
@@ -36,8 +36,7 @@ export default function BarbarescoPage() {
       badge: "Chef's Recommendation",
       description:
         "Ribbons of fresh hand-cut pappardelle pasta tossed with tender braised free-range chicken, sweet shallots, and crisp seasonal market vegetables in a light white wine and extra-virgin olive oil brodo.",
-      image:
-        "https://images.unsplash.com/photo-1621996346565-e3d5d628165b?w=800&q=80",
+      image: "/images/menu/pappardelle.jpg",
       alt: "Pappardelle pasta tossed with braised chicken and fresh garden vegetables",
     },
     {
@@ -268,12 +267,14 @@ export default function BarbarescoPage() {
                 <div>
                   {/* Image Container */}
                   <div className="relative h-64 w-full overflow-hidden bg-zinc-950">
-                    <img
+                    <Image
                       src={dish.image}
                       alt={dish.alt}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent opacity-60" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent opacity-60 pointer-events-none" />
                     
                     {/* Badge */}
                     <div className="absolute top-4 left-4">
